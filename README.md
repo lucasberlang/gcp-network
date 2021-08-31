@@ -18,7 +18,7 @@ Only Terraform 0.14 is supported.
 
 ```hcl
 module "network" {
-  source = "git::ssh://git@vliamd634.cloud.bankia.int:7999/ter/gcp-network.git?ref=v0.1.0"
+  source = "git@github.com:lucasberlang/gcp-network.git"
 
   [...]
 }
