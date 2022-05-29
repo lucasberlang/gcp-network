@@ -7,6 +7,7 @@ module "vpc" {
   source = "./modules/vpc"
 
   create_vpc                      = var.create_vpc
+  offset                          = var.offset
   auto_create_subnetworks         = var.auto_create_subnetworks
   routing_mode                    = var.routing_mode
   labels                          = var.labels
@@ -65,7 +66,7 @@ module "cloud_nat" {
   labels             = var.labels
   network_name       = module.vpc.name
 
-  subnetworks = [for n in module.intra.subnets : tomap({"${n.name}" = "${n.region}"})]
+  subnetworks = [for n in module.intra.subnets : tomap({ "${n.name}" = "${n.region}" })]
 }
 
 module "routes" {

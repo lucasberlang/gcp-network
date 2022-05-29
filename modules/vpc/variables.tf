@@ -9,6 +9,12 @@ variable "create_vpc" {
   default     = true
 }
 
+variable "offset" {
+  description = "The offset to be added to the VPC counter"
+  type        = number
+  default     = 1
+}
+
 variable "auto_create_subnetworks" {
   description = "Should be true to create a subnet for each region automatically"
   type        = bool

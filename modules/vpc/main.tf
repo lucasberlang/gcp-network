@@ -6,7 +6,7 @@ locals {
 resource "google_compute_network" "network" {
   count = var.create_vpc ? 1 : 0
 
-  name = "${local.prefix}operation-vpc01-${var.labels.environment}"
+  name = format("${local.prefix}operation-vpc%.2d-${var.labels.environment}", var.offset)
 
   auto_create_subnetworks         = var.auto_create_subnetworks
   routing_mode                    = var.routing_mode
